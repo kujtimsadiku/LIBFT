@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksadiku <ksadiku@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 16:47:49 by ksadiku           #+#    #+#             */
-/*   Updated: 2022/04/05 14:07:23 by ksadiku          ###   ########.fr       */
+/*   Created: 2022/03/22 11:54:56 by ksadiku           #+#    #+#             */
+/*   Updated: 2022/03/22 11:55:20 by ksadiku          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_free(void *arr, size_t len)
 {
-	if (!s)
+	if (!arr)
 		return ;
-	write(1, s, ft_strlen(s));
+	ft_bzero(arr, len);
+	free(arr);
 }

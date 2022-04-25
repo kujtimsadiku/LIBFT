@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ksadiku <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: ksadiku <ksadiku@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/30 11:18:00 by ksadiku           #+#    #+#              #
-#    Updated: 2021/12/02 15:28:40 by ksadiku          ###   ########.fr        #
+#    Updated: 2022/04/05 15:05:56 by ksadiku          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,25 +21,29 @@ ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c\
 ft_strsplit.c ft_itoa.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_putendl.c\
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c\
-ft_replace_c.c ft_replace_word.c ft_intlen.c ft_isspace.c ft_realloc.c
-OBJ = *.o
-HEADER = includes/*.h
+ft_replace_c.c ft_replace_word.c ft_intlen.c ft_isspace.c ft_realloc.c\
+get_next_line.c ft_free_array.c ft_free.c ft_strlenc.c ft_sqrt.c
+OBJ = $(SRC:.c=.o)
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+HEADER = includes/
 NOTNEED = *~
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -I $(HEADER) -c $(SRC)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(CC) $(FLAGS) -I $(HEADER) -c $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ)
-	rm -f $(NOTNEED)
+	@rm -f $(OBJ)
+	@rm -f $(NOTNEED)
+
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
-re: fclean all 
+re: fclean all
 
 .PHONY: all clean fclean re

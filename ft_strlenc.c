@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlenc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksadiku <ksadiku@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 16:47:49 by ksadiku           #+#    #+#             */
-/*   Updated: 2022/04/05 14:07:23 by ksadiku          ###   ########.fr       */
+/*   Created: 2022/03/22 11:54:24 by ksadiku           #+#    #+#             */
+/*   Updated: 2022/03/22 11:54:26 by ksadiku          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+size_t	ft_strlenc(char *str, char c)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }

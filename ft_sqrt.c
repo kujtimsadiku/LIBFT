@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksadiku <ksadiku@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 16:47:49 by ksadiku           #+#    #+#             */
-/*   Updated: 2022/04/05 14:07:23 by ksadiku          ###   ########.fr       */
+/*   Created: 2021/10/28 11:07:43 by ksadiku           #+#    #+#             */
+/*   Updated: 2022/03/22 14:03:18 by ksadiku          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+double	ft_sqrt(double nb)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	double	sqrt;
+	double	temp;
+
+	sqrt = nb / 2;
+	temp = 0;
+	if (nb < 0)
+		return (0);
+	while (sqrt != temp)
+	{
+		temp = sqrt;
+		sqrt = (nb / temp + temp) / 2;
+	}
+	return (sqrt);
 }
